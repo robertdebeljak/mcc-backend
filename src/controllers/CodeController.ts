@@ -14,7 +14,7 @@ export async function getCodeList(req: Request, res: Response, next: NextFunctio
     if (search) query.where('name', new RegExp(search as string, 'gi'));
 
     const totalCount = await NetworkOperatorData.count(query);
-    const data = await query.skip(offset).limit(limit).populate('country').exec();
+    const data = await query.skip(offset * limit).limit(limit).populate('country').exec();
 
     res.json({
       data,

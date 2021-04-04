@@ -12,8 +12,8 @@ export interface INetworkOperatorData extends Document {
   mnc: number;
   mncLong: number;
   imsi: number;
-  defaultMnc: boolean;
-  preferredNetwork: boolean;
+  defaultMnc: number;
+  preferredNetwork: number;
 }
 
 export interface INetworkOperatorDataModel extends Model<INetworkOperatorData> {
@@ -38,8 +38,8 @@ export const networkOperatorDataSchema = new Schema({
   mnc: Number,
   mncLong: Number,
   imsi: Number,
-  defaultMnc: Boolean,
-  preferredNetwork: Boolean
+  defaultMnc: Number,
+  preferredNetwork: Number
 }, { timestamps: true });
 
 const NetworkOperatorData = mongoose.model<INetworkOperatorData, INetworkOperatorDataModel>('NetworkOperatorData', networkOperatorDataSchema);
